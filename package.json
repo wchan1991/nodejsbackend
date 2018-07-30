@@ -1,0 +1,28 @@
+{
+  "name": "nodejsbackend",
+  "version": "1.0.0",
+  "description": "test nodejs backend v1",
+  "main": "app.js",
+  "dependencies": {
+    "backbone": "^1.3.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8bitmagic/nodejsbackend.git"
+  },
+  "keywords": [
+    "nodje"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/8bitmagic/nodejsbackend/issues"
+  },
+  "homepage": "https://github.com/8bitmagic/nodejsbackend#readme"
+}
