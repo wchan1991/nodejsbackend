@@ -19,10 +19,12 @@ connection.connect(function(error){
 	}
 })
 
+//variables test
+var objs = [];
 
 app.get('/', function(req,resp){
 	//about mysql
-	connection.query("SElECT * FROM oms_stats", function(error, rows, field){
+	connection.query("SELECT * FROM oms_stats LIMIT 5", function(error, rows, field){
 		//callback
 		if(!!error){
 			console.log ('error in the query');
@@ -30,7 +32,14 @@ app.get('/', function(req,resp){
 		}else{
 			//parse with your rows/fields
 			console.log('Successful Query');
-			resp.send(JSON.stringify(rows));
+			for (var i = 0; i < rows.length; i++){
+			
+				objs.push({id: rows[i].id});
+			
+			}
+			//connection.end();
+			
+			resp.end(JSON.stringify(rows,null, 4));
 
 		}
 	});
