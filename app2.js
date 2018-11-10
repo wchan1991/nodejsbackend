@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+
 var express   =    require("express");
 var mysql     =    require('mysql');
 var app       =    express();
@@ -22,7 +23,7 @@ connection.connect(function(error){
 
 app.get('/', function(req,resp){
 	//about mysql
-	connection.query("SElECT * FROM oms_stats", function(error, rows, field){
+	connection.query("SElECT * FROM order_buy LIMIT 1", function(error, rows, field){
 		//callback
 		if(!!error){
 			console.log ('error in the query');
@@ -31,11 +32,11 @@ app.get('/', function(req,resp){
 			//parse with your rows/fields
             console.log('Successful Query');
             
-
+			//console.log (typeof(rows));
 			resp.send(JSON.stringify(rows, null, 4));
 
 		}
 	});
 })
 
-app.listen(4042);
+app.listen(4041);
