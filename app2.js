@@ -1,8 +1,8 @@
 require('dotenv').config();
 
-var express = require('express');
-var mysql = require("mysql");
-var app = express();
+var express   =    require("express");
+var mysql     =    require('mysql');
+var app       =    express();
 
 var connection = mysql.createConnection({
 	host: process.env.DB_HOST,
@@ -29,11 +29,13 @@ app.get('/', function(req,resp){
 
 		}else{
 			//parse with your rows/fields
-			console.log('Successful Query');
-			resp.send(JSON.stringify(rows));
+            console.log('Successful Query');
+            
+
+			resp.send(JSON.stringify(rows, null, 4));
 
 		}
 	});
 })
 
-app.listen(4041);
+app.listen(4042);
