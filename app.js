@@ -14,6 +14,7 @@ var connection = mysql.createConnection({
 connection.connect(function(error){
 	if (!!error){
 		console.log('Error');
+		console.error(error);
 	} else{
 		console.log('Connected');
 	}
@@ -22,18 +23,21 @@ connection.connect(function(error){
 
 app.get('/', function(req,resp){
 	//about mysql
-	connection.query("SElECT * FROM oms_stats", function(error, rows, field){
+	
+	connection.query("SELECT * FROM order_buy", function(error, rows, field){
 		//callback
 		if(!!error){
 			console.log ('error in the query');
-
+			console.log(error.code)
 		}else{
 			//parse with your rows/fields
 			console.log('Successful Query');
-			resp.send(JSON.stringify(rows));
+			var results = JSON.stringify(rows[0]);
+			var jsonData = JSON.parse(results);
+			resp.send(jsonData);
 
 		}
 	});
 })
 
-app.listen(4041);
+app.listen(15150);

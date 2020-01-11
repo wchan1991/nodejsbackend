@@ -7,14 +7,15 @@ var app       =    express();
 
 var connection = mysql.createConnection({
 	host: process.env.DB_HOST,
-	user     : process.env.DB_USER,
-	password : process.env.DB_PASSWORD,
-	database : process.env.DB_NAME
+	user     : 'root',
+	password : 'sheryki123',
+	database : 'orders'
 });
 
 connection.connect(function(error){
 	if (!!error){
 		console.log('Error');
+		console.log(error);
 	} else{
 		console.log('Connected');
 	}
@@ -26,7 +27,7 @@ app.get('/', function(req,resp){
 	connection.query("SElECT * FROM order_buy LIMIT 1", function(error, rows, field){
 		//callback
 		if(!!error){
-			console.log ('error in the query');
+			console.log ('Error in the query');
 
 		}else{
 			//parse with your rows/fields
